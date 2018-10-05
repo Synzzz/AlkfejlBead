@@ -1,4 +1,4 @@
-# Tárgyfelvétel szimulátor
+# Neptun++
 
 ### Funkcionális követelmények:
 * felvehető tárgyak listázása (minkenki)
