@@ -9,7 +9,7 @@
 * hallgató(k) hozzáadása (admin)
 
 ### Nem funkcionális követelmények:
-* hallgatók listázása egy tárgyon(mindenki)
+* hallgatók listázása egy tárgyon (mindenki)
 
 ### Szerepkörök:
 * Tanár/Admin - Tud tárgyat hozzáadni
