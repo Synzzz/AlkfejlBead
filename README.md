@@ -14,3 +14,22 @@
 ### Szerepkörök:
 * Tanár/Admin - Tud tárgyat hozzáadni
 * Diák - Tud tárgyat felvenni
+
+### Végpontok:
+* felhasználók/
+* felhasználók/tárgyak
+* tárgyak/
+* tárgyak/
+* kurzusok/
+* kurzusok/tanár
+* kurzusok/diákSzám
+* kurzusok/diákLimit
+### Adatbázisok:
+* Felhasználók
+* Tárgyak
+* Kurzusok
+
+
+### Használati esetek:
+
+###
