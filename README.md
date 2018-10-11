@@ -29,7 +29,7 @@
 * Hallgató
 * Oktató
 * Kurzusok
-* Kurzusfelvételek
+* Tárgyfelvételek
 ![Adatbázis táblák](docs/img/Classdiagram1.png)
 
 
