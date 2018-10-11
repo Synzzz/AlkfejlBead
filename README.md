@@ -17,19 +17,23 @@
 
 ### Végpontok:
 * felhasználók/
-* felhasználók/tárgyak
+* felhasználók/tárgyak (paraméter: ID)
 * tárgyak/
-* tárgyak/
+* tárgyak/kurzusok (paraméter: ID) 
 * kurzusok/
-* kurzusok/tanár
-* kurzusok/diákSzám
-* kurzusok/diákLimit
+* kurzusok/tanár (paraméter: ID)
+* kurzusok/diákSzám (paraméter: ID)
+* kurzusok/diákLimit (paraméter: ID)
 ### Adatbázisok:
-* Felhasználók
 * Tárgyak
+* Hallgató
+* Oktató
 * Kurzusok
+* Tárgyfelvételek
+![Adatbázis táblák](docs/img/Classdiagram1.png)
 
 
 ### Használati esetek:
-
+![Hallgató használati esetei](docs/img/Usecasediagram1.png)
+![Oktató használati esetei](docs/img/Usecasediagram2.png)
 ###
