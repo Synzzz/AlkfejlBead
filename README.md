@@ -1,6 +1,8 @@
 # Neptun++
 
 ### Funkcionális követelmények:
+* regisztráció
+* bejelentkezés
 * felvehető tárgyak listázása (minkenki)
 * felvett tárgyak listázása (adott személy)
 * tárgy(ak) felvétele (adott személy)
@@ -9,7 +11,10 @@
 * hallgató(k) hozzáadása (admin)
 
 ### Nem funkcionális követelmények:
-* hallgatók listázása egy tárgyon (mindenki)
+* felhasználóbarát felület
+* jelszavak biztonságos tárolása
+* listázások gyors megjelenítése
+
 
 ### Szerepkörök:
 * Tanár/Admin - Tud tárgyat hozzáadni
