@@ -17,8 +17,8 @@
 
 
 ### Szerepkörök:
-* Tanár/Admin - Tud tárgyat hozzáadni
-* Diák - Tud tárgyat felvenni
+* Oktató/Admin - Tud tárgyat hozzáadni
+* Hallgató - Tud tárgyat felvenni
 
 ### Végpontok:
 * felhasználók/
