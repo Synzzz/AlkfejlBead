@@ -1,6 +1,8 @@
 # Neptun++
 
 ### Funkcionális követelmények:
+* regisztráció
+* bejelentkezés
 * felvehető tárgyak listázása (minkenki)
 * felvett tárgyak listázása (adott személy)
 * tárgy(ak) felvétele (adott személy)
@@ -9,21 +11,24 @@
 * hallgató(k) hozzáadása (admin)
 
 ### Nem funkcionális követelmények:
-* hallgatók listázása egy tárgyon (mindenki)
+* felhasználóbarát felület
+* jelszavak biztonságos tárolása
+* listázások gyors megjelenítése
+
 
 ### Szerepkörök:
-* Tanár/Admin - Tud tárgyat hozzáadni
-* Diák - Tud tárgyat felvenni
+* Oktató/Admin - Tud tárgyat hozzáadni
+* Hallgató - Tud tárgyat felvenni
 
 ### Végpontok:
 * felhasználók/
-* felhasználók/tárgyak (paraméter: ID)
+* felhasználók/{ID}/tárgyak
 * tárgyak/
-* tárgyak/kurzusok (paraméter: ID) 
+* tárgyak/{ID}/kurzusok
 * kurzusok/
-* kurzusok/tanár (paraméter: ID)
-* kurzusok/diákSzám (paraméter: ID)
-* kurzusok/diákLimit (paraméter: ID)
+* kurzusok/{ID}/tanár
+* kurzusok/{ID}/diákSzám
+* kurzusok/{ID}/diákLimit
 ### Adatbázisok:
 * Tárgyak
 * Hallgató
