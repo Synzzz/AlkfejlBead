@@ -15,6 +15,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+//Hallgato
+
 @Entity
 @Data
 @NoArgsConstructor

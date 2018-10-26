@@ -14,6 +14,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+
+//Maga a tantargy
+
 @Entity
 @Data
 @NoArgsConstructor

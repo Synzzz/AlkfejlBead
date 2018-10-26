@@ -17,6 +17,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+//Kurzusok (targyon belul csoport stb)
+
 @Entity
 @Data
 @NoArgsConstructor
