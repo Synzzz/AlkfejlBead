@@ -1,0 +1,11 @@
+hu\elte\Neptun\entities\Subject.class
+hu\elte\Neptun\repositories\SubjectRegistrationRepository.class
+hu\elte\Neptun\repositories\CourseRepository.class
+hu\elte\Neptun\entities\Teacher.class
+hu\elte\Neptun\repositories\SubjectRepository.class
+hu\elte\Neptun\entities\Course.class
+hu\elte\Neptun\repositories\StudentRepository.class
+hu\elte\Neptun\Application.class
+hu\elte\Neptun\entities\Student.class
+hu\elte\Neptun\entities\SubjectRegistration.class
+hu\elte\Neptun\repositories\TeacherRepository.class
