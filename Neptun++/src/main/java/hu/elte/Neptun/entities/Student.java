@@ -28,6 +28,14 @@ public class Student implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
+    @Column(unique = true)
+    @NotNull
+    private String username;
+    
+    @Column
+    @NotNull
+    private String password;
+    
     @Column
     @NotNull
     private String name;

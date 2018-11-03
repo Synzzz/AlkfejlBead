@@ -32,10 +32,6 @@ public class Subject implements Serializable {
     @NotNull
     private String name;
     
-    @Column
-    @NotNull
-    private String type;
-    
     @OneToMany(mappedBy = "subject")
     private List<Course> courses;
 }

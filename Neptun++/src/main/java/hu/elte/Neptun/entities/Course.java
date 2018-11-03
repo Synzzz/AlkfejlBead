@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,13 +44,11 @@ public class Course implements Serializable {
     private List<Student> students;
     
     @JsonIgnore
-    @JoinColumn
-    @ManyToOne
+    @OneToOne
     private Subject subject;
     
     @JsonIgnore
-    @JoinColumn
-    @ManyToOne
+    @OneToOne
     private Teacher teacher;
     
 }

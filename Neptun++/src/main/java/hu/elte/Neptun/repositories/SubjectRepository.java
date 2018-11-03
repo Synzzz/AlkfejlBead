@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SubjectRepository extends CrudRepository<Subject, Integer> {
     public Optional<Subject> findByName(String name);
-    public Optional<Subject> findByType(String type);
 
 }

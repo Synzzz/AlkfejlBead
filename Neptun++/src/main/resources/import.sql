@@ -1,4 +1,13 @@
-/* 
- *ide jonnek majd a kezdo adatok
- */
+--ide jonnek majd a kezdo adatok
 
+--passwordokat atirni encode-oltra majd
+INSERT INTO STUDENT (`NAME`,`USERNAME`,`PASSWORD`) VALUES ('Bela','bela','123');
+INSERT INTO STUDENT (`NAME`,`USERNAME`,`PASSWORD`) VALUES ('David','david','123');
+INSERT INTO STUDENT (`NAME`,`USERNAME`,`PASSWORD`) VALUES ('Attila','attila','123');
+INSERT INTO STUDENT (`NAME`,`USERNAME`,`PASSWORD`) VALUES ('Tamas','tamas','123');
+INSERT INTO STUDENT (`NAME`,`USERNAME`,`PASSWORD`) VALUES ('Alfred','alfred','123');
+
+INSERT INTO SUBJECT (`NAME`) VALUES ('Analizis 5 EA');
+INSERT INTO SUBJECT (`NAME`) VALUES ('Analizis 6 EA');
+INSERT INTO SUBJECT (`NAME`) VALUES ('Analizis 7 EA');
+INSERT INTO SUBJECT (`NAME`) VALUES ('Analizis 8 EA');
