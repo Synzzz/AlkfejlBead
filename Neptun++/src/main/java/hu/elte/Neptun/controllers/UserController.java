@@ -26,7 +26,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
     @Autowired
-    UserRepository courseRepository;
+    CourseRepository courseRepository;
     @Autowired
     SubjectRegistrationRepository subjectRegistratorRepository;
     @Autowired

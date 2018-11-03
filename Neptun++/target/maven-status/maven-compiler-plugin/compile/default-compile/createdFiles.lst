@@ -1,7 +1,10 @@
+hu\elte\Neptun\controllers\UserController.class
 hu\elte\Neptun\entities\Subject.class
 hu\elte\Neptun\repositories\SubjectRegistrationRepository.class
 hu\elte\Neptun\entities\User$Role.class
+hu\elte\Neptun\controllers\CourseController.class
 hu\elte\Neptun\controllers\SubjectController.class
+hu\elte\Neptun\repositories\CourseRepository.class
 hu\elte\Neptun\controllers\SubjectRegistrationController.class
 hu\elte\Neptun\repositories\SubjectRepository.class
 hu\elte\Neptun\entities\User.class
@@ -10,3 +13,4 @@ hu\elte\Neptun\Application.class
 hu\elte\Neptun\entities\SubjectRegistration.class
 hu\elte\Neptun\repositories\UserRepository.class
 hu\elte\Neptun\services\MyUserDetailsService.class
+hu\elte\Neptun\WebSecurityConfig.class
