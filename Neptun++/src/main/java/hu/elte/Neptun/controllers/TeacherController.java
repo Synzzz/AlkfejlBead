@@ -2,6 +2,7 @@ package hu.elte.Neptun.controllers;
 
 import hu.elte.Neptun.entities.Course;
 import hu.elte.Neptun.entities.Teacher;
+import hu.elte.Neptun.repositories.CourseRepository;
 import hu.elte.Neptun.repositories.TeacherRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class TeacherController {
     @Autowired
     TeacherRepository teacherRepository;
+    
+    @Autowired
+    CourseRepository courseRepository;
     
     @PostMapping("/register")
     public ResponseEntity<Teacher> register(@RequestBody Teacher teacher) {
@@ -38,9 +42,24 @@ public class TeacherController {
         return ResponseEntity.badRequest().build();
     }
     
+     @PostMapping("/{id}/addCourse")
+    public ResponseEntity<Course> addCourse(@RequestBody Course course, @PathVariable Integer id) {
+        Optional<Teacher> oTeacher = teacherRepository.findById(id);
+        
+        if(!oTeacher.isPresent()) {
+            return ResponseEntity.notFound().build();  
+        }
+        
+        course.setTeacher(oTeacher.get());
+        courseRepository.save(course);
+        
+        return ResponseEntity.ok(course);
+    }
+    
     @GetMapping("/{id}/courses")
     public ResponseEntity<Iterable<Course>> getCourses(@PathVariable Integer id) {
         Optional<Teacher> oTeacher = teacherRepository.findById(id);
+        
         if (!oTeacher.isPresent()) {
             return ResponseEntity.notFound().build();
         }
