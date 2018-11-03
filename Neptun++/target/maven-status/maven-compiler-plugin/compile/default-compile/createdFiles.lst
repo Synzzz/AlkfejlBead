@@ -14,3 +14,4 @@ hu\elte\Neptun\Application.class
 hu\elte\Neptun\entities\Student.class
 hu\elte\Neptun\entities\SubjectRegistration.class
 hu\elte\Neptun\repositories\TeacherRepository.class
+hu\elte\Neptun\WebSecurityConfig.class
