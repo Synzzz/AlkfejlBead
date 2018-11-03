@@ -33,6 +33,6 @@ public class SubjectRegistration implements Serializable {
     @JsonIgnore
     //ezek az one to onek nem tudom kellenek e (same in course)
     @OneToOne
-    private Student student;
+    private User student;
     
 }

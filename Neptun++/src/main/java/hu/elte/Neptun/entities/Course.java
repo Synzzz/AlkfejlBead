@@ -41,7 +41,7 @@ public class Course implements Serializable {
     
     @ManyToMany(mappedBy = "courses")
     @JsonIgnore
-    private List<Student> students;
+    private List<User> students;
     
     @JsonIgnore
     @OneToOne
@@ -49,6 +49,6 @@ public class Course implements Serializable {
     
     @JsonIgnore
     @OneToOne
-    private Teacher teacher;
+    private User teacher;
     
 }
