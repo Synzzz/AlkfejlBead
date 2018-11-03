@@ -26,6 +26,8 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
     @Autowired
+    UserRepository courseRepository;
+    @Autowired
     SubjectRegistrationRepository subjectRegistratorRepository;
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -112,6 +114,7 @@ public class UserController {
         
         course.setTeacher(oTeacher.get());
         courseRepository.save(course);
+        
         
         return ResponseEntity.ok(course);
     }
