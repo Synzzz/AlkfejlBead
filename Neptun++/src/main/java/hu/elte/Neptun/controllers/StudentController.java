@@ -29,11 +29,11 @@ public class StudentController {
     @PostMapping("/register")
     public ResponseEntity<Student> register(@RequestBody Student student) {
         //CSAK HA TANÁR VAGY
-        /*Optional<Student> oStudent = studentRepository.findById(student.getId());//ha a JSON-ből nem jön id itt kiakad null miatt
+        Optional<Student> oStudent = studentRepository.findByName(student.getName());//ha a JSON-ből nem jön id itt kiakad null miatt
         
         if (oStudent.isPresent()) {
             return ResponseEntity.badRequest().build();
-        }*/
+        }
         
         return ResponseEntity.ok(studentRepository.save(student));
     }
