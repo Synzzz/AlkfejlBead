@@ -25,13 +25,11 @@ public class TeacherController {
     
     @PostMapping("/register")
     public ResponseEntity<Teacher> register(@RequestBody Teacher teacher) {
-        Optional<Teacher> oTeacher = teacherRepository.findById(teacher.getId());
+        /*Optional<Teacher> oTeacher = teacherRepository.findById(teacher.getId());//ha a JSON-ből nem jön id itt kiakad null miatt
         
         if (oTeacher.isPresent()) {
             return ResponseEntity.badRequest().build();
-        }
-        
-        teacher.setId(null);
+        }*/
         
         return ResponseEntity.ok(teacherRepository.save(teacher));
     }
