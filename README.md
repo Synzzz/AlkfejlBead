@@ -43,4 +43,27 @@
 ### Használati esetek:
 ![Hallgató használati esetei](docs/img/Usecasediagram1.png)
 ![Oktató használati esetei](docs/img/Usecasediagram2.png)
-###
+
+### Szekvencia diagramok:
+
+* regisztrálás
+![regisztrálás szekvenciája](docs/img/register.png)
+
+* belépés
+![login szekvenciája](docs/img/login.png)
+
+* felhasználók lekérése
+![felhasználók lekérése szekvenciája](docs/img/getAll.png)
+
+* kurzusok lekérése
+![kurzusok keresése szekvenciája](docs/img/courses.png)
+
+* kurzus hozzáadása
+![kurzus hozzáadása szekvenciája](docs/img/addCourse.png)
+
+* kurzus felvétele
+![kurzus felvétele szekvenciája](docs/img/takeCourse.png)
+
+* kurzus leadása
+![kurzus hozzáadása szekvenciája](docs/img/leaveCourse.png)
+
