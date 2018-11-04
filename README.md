@@ -31,10 +31,12 @@
 * kurzusok/{ID}/diákLimit
 ### Adatbázisok:
 * Tárgyak
-* Hallgató
-* Oktató
+* Felhasználók
 * Kurzusok
 * Tárgyfelvételek
+
+
+
 ![Adatbázis táblák](docs/img/Classdiagram1.png)
 
 
