@@ -23,6 +23,8 @@
 ### Végpontok:
 * felhasználók/
 * felhasználók/{ID}/tárgyak
+* felhasználók/{ID}/tárgyFelvétel
+* felhasználók/{ID}/tárgyLeadás
 * tárgyak/
 * tárgyak/{ID}/kurzusok
 * kurzusok/
