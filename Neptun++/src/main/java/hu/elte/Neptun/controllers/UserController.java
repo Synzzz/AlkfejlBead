@@ -5,8 +5,6 @@ import hu.elte.Neptun.entities.Subject;
 import hu.elte.Neptun.entities.User;
 import hu.elte.Neptun.repositories.CourseRepository;
 import hu.elte.Neptun.repositories.UserRepository;
-import hu.elte.Neptun.entities.SubjectRegistration;
-import hu.elte.Neptun.repositories.SubjectRegistrationRepository;
 import hu.elte.Neptun.repositories.SubjectRepository;
 import java.util.List;
 import java.util.Objects;
@@ -22,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/api/users")
@@ -34,10 +33,7 @@ public class UserController {
     
     @Autowired
     SubjectRepository subjectRepository;
-    
-    @Autowired
-    SubjectRegistrationRepository subjectRegistratorRepository;
-    
+        
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
@@ -50,7 +46,6 @@ public class UserController {
         }
         user.setId(null);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(User.Role.ROLE_USER);
         return ResponseEntity.ok(userRepository.save(user));
     }
     
@@ -67,11 +62,12 @@ public class UserController {
     }
     
     //tárgyfelvétel usernek
-    @PostMapping("/{id}/takeCourse")
+    
+    @PutMapping("/{userID}/takeCourse/{courseID}")
     @Secured({ "ROLE_USER", "ROLE_ADMIN" })//ROLE_ADMIN CSAK TESZTELÉSHEZ KELL
-    public ResponseEntity<SubjectRegistration> takeCourse(@RequestBody Course course, @PathVariable Integer id) {
-        Optional<User> oStudent = userRepository.findById(id);
-        Optional<Course> oCourse = courseRepository.findById(course.getId());
+    public ResponseEntity<User> takeCourse(@PathVariable Integer userID, @PathVariable Integer courseID) {
+        Optional<User> oStudent = userRepository.findById(userID);
+        Optional<Course> oCourse = courseRepository.findById(courseID);
         
         if(!oStudent.isPresent() || !oCourse.isPresent()) {
             return ResponseEntity.notFound().build();
@@ -92,33 +88,29 @@ public class UserController {
         courses.add(oCourse.get());
         oStudent.get().setCourses(courses);
         
-        SubjectRegistration reg = new SubjectRegistration();
-        reg.setCourse(oCourse.get());
-        reg.setStudent(oStudent.get());
         
         List<User> students = oCourse.get().getStudents();
         students.add(oStudent.get());
         oCourse.get().setStudents(students);
         
-        userRepository.save(oStudent.get());
-        courseRepository.save(oCourse.get());
-        subjectRegistratorRepository.save(reg);
         
-        return ResponseEntity.ok(reg);
+        courseRepository.save(oCourse.get());
+        
+        return ResponseEntity.ok(userRepository.save(oStudent.get()));
     }
     
     //tárgyleadás usernek
-    @DeleteMapping("/{id}/{registrationID}")
+    @DeleteMapping("/{id}/{courseID}")
     @Secured({ "ROLE_USER" })
-    public ResponseEntity leaveCourse(@PathVariable Integer id, @PathVariable Integer registrationID) {
+    public ResponseEntity<User> leaveCourse(@PathVariable Integer id, @PathVariable Integer courseID) {
         Optional<User> oUser = userRepository.findById(id);
-        Optional<SubjectRegistration> oRegistration = subjectRegistratorRepository.findById(registrationID);
+        Optional<Course> oCourse = courseRepository.findById(courseID);
         
-        if (!oUser.isPresent() || !oRegistration.isPresent()) {
+        if (!oUser.isPresent() || !oCourse.isPresent()) {
             return ResponseEntity.notFound().build();   
         }
         
-        Course course = oRegistration.get().getCourse();
+        Course course = oCourse.get();
         List<User> students = course.getStudents();
         students.remove(oUser.get());
         course.setStudents(students);
@@ -130,7 +122,6 @@ public class UserController {
         
         courseRepository.save(course);
         userRepository.save(oUser.get());
-        subjectRegistratorRepository.deleteById(registrationID);
         
         return ResponseEntity.ok().build();
     }

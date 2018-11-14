@@ -20,5 +20,5 @@ INSERT INTO SUBJECT (id,`NAME`) VALUES (6,'OPRE EA');
 INSERT INTO course (id,student_count,student_limit,subject_id,teacher_id) values (1,0,50,1,1);
 INSERT INTO course (id,student_count,student_limit,subject_id,teacher_id) values (2,0,666,6,2);
 
-INSERT INTO subject_registration (course_id,student_id) values (2,3);
-INSERT INTO subject_registration (course_id,student_id) values (1,3);
+INSERT INTO USER_COURSES  (COURSES_ID,STUDENTS_ID) values (2,3);
+INSERT INTO USER_COURSES  (COURSES_ID,STUDENTS_ID) values (1,3);
