@@ -1,0 +1,4 @@
+-subject list page html-ben eldönteni hogy lesz (komment)
+-login page
+-új felhaszn. regisztrálás page
+-kurzus felvétel választgatást megoldani

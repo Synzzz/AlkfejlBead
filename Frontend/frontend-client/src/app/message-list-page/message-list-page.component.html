@@ -1,0 +1,23 @@
+<!--<mat-list>
+  <mat-list-item *ngFor="let message of _messages">
+    <h3 matLine> {{message.sender.name}} </h3>
+    <p matLine>
+      <span> {{message.message}} </span>
+    </p>
+  </mat-list-item>
+</mat-list>
+-->
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let message of _messages">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{message.sender.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+            {{message.message}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>{{message.message}}</p>
+    </mat-expansion-panel>
+  <mat-accordion>
+

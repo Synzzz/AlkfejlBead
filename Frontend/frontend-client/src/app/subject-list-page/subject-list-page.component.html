@@ -1,0 +1,38 @@
+<!--<mat-grid-list cols="2" rowHeight="3:1">
+  <mat-grid-tile *ngFor="let subject of _subjects">
+    <mat-card>
+      <mat-card-title>
+        {{ subject.name }}
+      </mat-card-title>
+      
+      <ul>
+        <li *ngFor="let course of subject.courses">
+          {{ course.studentCount }} of {{course.studentLimit}}
+        </li>
+      </ul>
+    
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+-->
+
+<!-- vagy kártyázunk és felugró ablakban coursek, vagy lenyiló és valami ilyen,de nem radio mert azt nem lehet üresen hagyni. -->
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let subject of _subjects">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              {{ subject.name }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group *ngFor="let course of subject.courses">
+            <mat-radio-button>
+                {{ course.studentCount }} of {{course.studentLimit}}
+            </mat-radio-button>
+        </mat-radio-group>
+        <mat-action-row>
+            <button mat-button>Click me</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+<mat-accordion>
+  
+  
