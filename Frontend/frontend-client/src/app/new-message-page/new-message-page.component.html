@@ -1,0 +1,17 @@
+<!--(mat-option[value=$]>{$})*23-->
+<form [formGroup]="newMessageForm" (ngSubmit)="onSubmit()" >
+  <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Címzett" aria-label="Címzett" matInput [formControl]="newMessageForm.controls.name" [matAutocomplete]="auto" required>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  <br> 
+  <mat-form-field class="full-width">
+      <textarea matInput placeholder="Üzenet" formControlName="message" required></textarea>
+  </mat-form-field>
+  <br>
+  <button [disabled]="!newMessageForm.valid" mat-flat-button type="submit" color="primary" >Küldés</button>
+</form>

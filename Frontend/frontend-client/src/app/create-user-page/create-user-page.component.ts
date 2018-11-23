@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
+import { User } from '../classes/user';
 
 @Component({
   selector: 'app-create-user-page',
@@ -6,10 +8,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-user-page.component.css']
 })
 export class CreateUserPageComponent implements OnInit {
+  @Output('user') public user: EventEmitter<User> 
+    = new EventEmitter<User>();
 
-  constructor() { }
+  private _user: User = {
+    id: null,
+    username: null,
+    password: null,
+    name: null,
+    courses: null,
+    role: null
+  }
+
+  private createUserForm = this.fb.group({
+    name: [''],
+    username: [''],
+    password: [''],
+    role: [''],
+  });
+
+  constructor(
+    private fb: FormBuilder
+
+  ) { }
 
   ngOnInit() {
+  }
+
+  private onSubmit() {
+    
+    this._user.name=this.createUserForm.get('name').value;
+    this._user.username=this.createUserForm.get('username').value;
+    this._user.password=this.createUserForm.get('password').value;
+    this._user.role=this.createUserForm.get('role').value;
+
+    this.user.emit(this._user);
+    //teszt, majd kitorolni
+    console.log(this._user);
+
   }
 
 }

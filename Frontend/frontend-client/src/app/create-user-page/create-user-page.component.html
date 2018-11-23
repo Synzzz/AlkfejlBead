@@ -1,3 +1,24 @@
-<p>
-  create-user-page works!
-</p>
+<!--(mat-option[value=$]>{$})*23-->
+<form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input formControlName="name" matInput placeholder="Név" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input formControlName="username" matInput placeholder="Felhasználónév" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input formControlName="password" type="password" matInput placeholder="Jelszó" required>
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <mat-select [(value)]="ROLE_USER" formControlName="role" placeholder="Szerepkör" required>
+      <mat-option value="ROLE_USER">Hallgató</mat-option>
+      <mat-option value="ROLE_ADMIN">Oktató</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <button [disabled]="!createUserForm.valid" mat-flat-button type="submit" color="primary">Regisztrálás</button>
+</form>

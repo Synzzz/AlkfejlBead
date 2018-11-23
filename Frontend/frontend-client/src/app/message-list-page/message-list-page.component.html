@@ -7,6 +7,8 @@
   </mat-list-item>
 </mat-list>
 -->
+<button mat-button routerLink="../new-message">Új üzenet</button>
+
 <mat-accordion>
   <mat-expansion-panel *ngFor="let message of _messages">
       <mat-expansion-panel-header>
@@ -18,6 +20,6 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <p>{{message.message}}</p>
-    </mat-expansion-panel>
-  <mat-accordion>
+  </mat-expansion-panel>
+<mat-accordion>
 

@@ -1,3 +1,16 @@
-<p>
-  login-page works!
-</p>
+<!--       _
+       .__(.)< (MEOW)
+        \___)   
+ ~~~~~~~~~~~~~~~~~~-->
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input formControlName="username" matInput placeholder="Felhasználónév" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input formControlName="password" type="password" matInput placeholder="Jelszó" required>
+  </mat-form-field>
+  <br>
+
+  <button [disabled]="!loginForm.valid" mat-flat-button type="submit" color="primary">Bejelentkezés</button>
+</form>
