@@ -59,6 +59,9 @@ export class NewMessagePageComponent implements OnInit {
 
   private onSubmit() {
     //validalni a bejelentkezest majd valahogy
+    if (this.newMessageForm.invalid) {
+      return;
+    }
     console.log(this.newMessageForm.value.name.name)
   }
 }

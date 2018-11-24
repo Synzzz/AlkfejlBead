@@ -36,7 +36,9 @@ export class CreateUserPageComponent implements OnInit {
   }
 
   private onSubmit() {
-    
+    if (this.createUserForm.invalid) {
+      return;
+    }
     this._user.name=this.createUserForm.get('name').value;
     this._user.username=this.createUserForm.get('username').value;
     this._user.password=this.createUserForm.get('password').value;

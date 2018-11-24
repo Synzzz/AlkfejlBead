@@ -24,7 +24,9 @@ export class LoginPageComponent implements OnInit {
 
   private onSubmit() {
     //validalni a bejelentkezest majd valahogy
-
+    if (this.loginForm.invalid) {
+      return;
+    }
   }
 
 }
