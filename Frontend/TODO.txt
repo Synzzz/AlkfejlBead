@@ -1,2 +1,5 @@
--subject list page html-ben eldönteni hogy lesz (komment)
--kurzus felvétel választgatást megoldani
+-subject list page bekötni a felvétel gombot, megoldani hogy valid legyen(normális form mindennel)
+-hitelesitõ szerviz
+-login csináljon valamit
+-belépett felhasználó nevét kiirni
+-kijelentkezés gomb+bekötni

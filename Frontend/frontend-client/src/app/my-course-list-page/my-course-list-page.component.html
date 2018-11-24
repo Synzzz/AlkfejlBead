@@ -1,0 +1,24 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let course of _courses">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{course.subject.name}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>
+        Oktató neve: {{course.teacher.name}}<br>
+        Kurzus hallgatóinak száma/limit: {{course.studentCount}} / {{course.studentLimit}}<br>
+      </p>
+      <!--mégegy legördülőben a kurzus hallgatóinak neve-->
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Kurzus hallgatói
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ul>
+            <li  *ngFor="let student of course.students">{{student.name}}</li>
+          </ul>
+      </mat-expansion-panel>
+  </mat-expansion-panel>
+<mat-accordion>

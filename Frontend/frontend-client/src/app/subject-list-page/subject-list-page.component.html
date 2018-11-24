@@ -24,13 +24,15 @@
               {{ subject.name }}
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-radio-group *ngFor="let course of subject.courses">
-            <mat-radio-button>
-                {{ course.studentCount }} of {{course.studentLimit}}
-            </mat-radio-button>
-        </mat-radio-group>
+          <mat-radio-group >
+              <mat-radio-button *ngFor="let course of subject.courses" [value]="course.id">
+                  <label>Hallgatók száma/limit: {{ course.studentCount }} / {{course.studentLimit}} <br>
+                      Oktató neve: {{course.teacher.name}} 
+                  </label>
+              </mat-radio-button>
+          </mat-radio-group>
         <mat-action-row>
-            <button mat-button>Click me</button>
+            <button  mat-button type="submit" >Tárgy felvétele </button>
         </mat-action-row>
     </mat-expansion-panel>
 <mat-accordion>

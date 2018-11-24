@@ -26,6 +26,7 @@ import { MessageListPageComponent } from './message-list-page/message-list-page.
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateUserPageComponent } from './create-user-page/create-user-page.component';
 import { NewMessagePageComponent } from './new-message-page/new-message-page.component';
+import { MyCourseListPageComponent } from './my-course-list-page/my-course-list-page.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { NewMessagePageComponent } from './new-message-page/new-message-page.com
     LoginPageComponent,
     CreateUserPageComponent,
     NewMessagePageComponent,
+    MyCourseListPageComponent,
   ],
   imports: [
     BrowserModule,
