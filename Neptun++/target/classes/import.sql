@@ -9,10 +9,10 @@ INSERT INTO user (id,name,username, password, role) values (4,'Maxpont Ferenc','
 
 
 INSERT INTO SUBJECT (id,`NAME`) VALUES (1,'Analizis 5 EA');
---INSERT INTO SUBJECT (id,`NAME`) VALUES (2,'Analizis 6 EA');
---INSERT INTO SUBJECT (id,`NAME`) VALUES (3,'Analizis 7 EA');
---INSERT INTO SUBJECT (id,`NAME`) VALUES (4,'Analizis 8 EA');
---INSERT INTO SUBJECT (id,`NAME`) VALUES (5,'Analizis 9 EA');
+INSERT INTO SUBJECT (id,`NAME`) VALUES (2,'Analizis 6 EA');
+INSERT INTO SUBJECT (id,`NAME`) VALUES (3,'Analizis 7 EA');
+INSERT INTO SUBJECT (id,`NAME`) VALUES (4,'Analizis 8 EA');
+INSERT INTO SUBJECT (id,`NAME`) VALUES (5,'Analizis 9 EA');
 INSERT INTO SUBJECT (id,`NAME`) VALUES (6,'OPRE EA');
 
 

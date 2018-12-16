@@ -38,7 +38,6 @@ public class User implements Serializable {
     
     @Column
     @NotNull
-    @JsonProperty
     private String password;
     
     @Column
@@ -55,5 +54,15 @@ public class User implements Serializable {
     
     public enum Role {
         ROLE_USER, ROLE_ADMIN
+    }
+    
+    @JsonIgnore
+    public String getPassword() {
+        return password;
+    }
+    
+    @JsonProperty
+    public void setPassword(String password) {
+       this.password = password;
     }
 }

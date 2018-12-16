@@ -3,6 +3,8 @@ import { SubjectService } from '../services/subject.service';
 import { Subject } from '../classes/subject';
 import { MyCoursesService } from '../services/my-courses.service';
 import { Course } from '../classes/course';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-subject-list-page',
@@ -16,7 +18,9 @@ export class SubjectListPageComponent implements OnInit {
 
   constructor(
     private _subjectService: SubjectService,
-    private courseService : MyCoursesService
+    private courseService : MyCoursesService,
+    private router: Router
+
   ) { }
 
   async ngOnInit() {
@@ -48,6 +52,9 @@ export class SubjectListPageComponent implements OnInit {
     for(let subjectId in this.selectedCourses){
       let courseId = this.selectedCourses[subjectId]
       this.courseService.takeCourse(courseId);
+
     }
+    this.router.navigate(['/']);
+
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MyCoursesService } from '../services/my-courses.service';
 import { Course } from '../classes/course';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-my-course-list-page',
@@ -12,7 +14,9 @@ export class MyCourseListPageComponent implements OnInit {
   
 
   constructor(
-    private _myCoursesService: MyCoursesService
+    private _myCoursesService: MyCoursesService,
+    private router: Router
+
 
   ) { }
 
@@ -28,5 +32,7 @@ export class MyCourseListPageComponent implements OnInit {
 
   leaveCourse(courseId : number){
     this._myCoursesService.leaveCourse(courseId);
+    this.router.navigate(['/my-courses']);
+
   }
 }
