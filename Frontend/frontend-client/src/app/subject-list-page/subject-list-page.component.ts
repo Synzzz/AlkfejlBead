@@ -54,7 +54,7 @@ export class SubjectListPageComponent implements OnInit {
       this.courseService.takeCourse(courseId);
 
     }
-    this.router.navigate(['/']);
+    this.router.navigate(['/my-courses']);
 
   }
 }

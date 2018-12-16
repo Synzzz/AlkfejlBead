@@ -32,7 +32,7 @@ export class MyCourseListPageComponent implements OnInit {
 
   leaveCourse(courseId : number){
     this._myCoursesService.leaveCourse(courseId);
-    this.router.navigate(['/my-courses']);
+    this.router.navigate(['/']);
 
   }
 }
