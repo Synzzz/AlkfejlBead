@@ -33,6 +33,7 @@ public class MessageController {
     }
     
     @GetMapping("/{id}/sender")
+    @Secured({ "ROLE_ADMIN", "ROLE_USER" })
     public ResponseEntity<Iterable<Message>> getSender(@PathVariable Integer id) {
         Optional<User> oUser = userRepository.findById(id);
         
@@ -50,6 +51,7 @@ public class MessageController {
     }
     
     @GetMapping("/{id}/addressee")
+    @Secured({ "ROLE_ADMIN", "ROLE_USER" })
     public ResponseEntity<Iterable<Message>> getAdressee(@PathVariable Integer id) {
         Optional<User> oUser = userRepository.findById(id);
         
@@ -67,7 +69,7 @@ public class MessageController {
     }
     
     @PostMapping("/sendMessage")
-    @Secured({ "ROLE_ADMIN","ROLE_USER" })
+    @Secured({ "ROLE_ADMIN", "ROLE_USER" })
     public ResponseEntity<Message> sendMessage(@RequestBody Message message) {
         //itt menjen, username vagy id? mindkettő egyedi úgyis
         System.out.println(message.getMessage());

@@ -1,6 +1,7 @@
 package hu.elte.Neptun.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
@@ -37,7 +38,7 @@ public class User implements Serializable {
     
     @Column
     @NotNull
-    @JsonIgnore
+    @JsonProperty
     private String password;
     
     @Column

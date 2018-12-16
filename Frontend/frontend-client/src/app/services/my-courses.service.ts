@@ -20,4 +20,24 @@ export class MyCoursesService {
   public getCourses(): Promise<Course[]> {
     return this.httpService.get('users/' + this.authService.user.id + '/courses');
   }
+
+  public getCourseTeacher(id : number) : Promise<User>{
+    return this.httpService.get(this.route + '/' + id + '/teacher');
+  }
+
+  public takeCourse(courseId:number):void{
+    this.httpService.put('users/' + this.authService.user.id + '/takeCourse/' + courseId, undefined);
+  }
+
+  public getCourseStudents(courseId:number):Promise<User[]>{
+    return this.httpService.get(this.route + '/' + courseId + '/students');
+  }
+
+  public getCourseSubject(courseId:number):Promise<Subject>{
+    return this.httpService.get(this.route + '/' + courseId + '/subject');
+  }
+
+  public leaveCourse(courseId:number):void{
+    this.httpService.delete('users/' + this.authService.user.id + '/' + courseId + '/');
+  }
 }

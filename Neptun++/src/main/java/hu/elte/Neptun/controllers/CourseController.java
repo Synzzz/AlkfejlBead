@@ -1,5 +1,6 @@
 package hu.elte.Neptun.controllers;
 import hu.elte.Neptun.entities.Course;
+import hu.elte.Neptun.entities.Subject;
 import hu.elte.Neptun.entities.User;
 import hu.elte.Neptun.repositories.CourseRepository;
 import java.util.Optional;
@@ -33,7 +34,29 @@ public class CourseController {
             return ResponseEntity.notFound().build();
         }
         
+        System.out.println(oCourse.get().getTeacher() == null);
+        
         return ResponseEntity.ok(oCourse.get().getTeacher());
+    }
+    
+    @GetMapping("/{id}/students")
+    public ResponseEntity<Iterable<User>> getStudents(@PathVariable Integer id) {
+        Optional<Course> oCourse = courseRepository.findById(id);
+        if (!oCourse.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        return ResponseEntity.ok(oCourse.get().getStudents());
+    }
+    
+    @GetMapping("/{id}/subject")
+    public ResponseEntity<Subject> getSubject(@PathVariable Integer id) {
+        Optional<Course> oCourse = courseRepository.findById(id);
+        if (!oCourse.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        return ResponseEntity.ok(oCourse.get().getSubject());
     }
     
     @GetMapping("/{id}/studentCount")
@@ -55,6 +78,4 @@ public class CourseController {
         
         return ResponseEntity.ok(oCourse.get().getStudentLimit());
     }
-    
-
 }

@@ -20,11 +20,4 @@ export class SubjectService {
   public getSubjects(): Promise<Subject[]> {
     return this.httpService.get(this.route);
   }
-
-  // public getSubject(id: number): Subject {
-  //   return this._SUBJECTS.find((subject: Subject) => subject.id === id);
-  //   // return this._MACHINES.find(function (machine) {
-  //   //   return machine.id === id;
-  //   // })
-  // }
 }

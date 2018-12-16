@@ -103,7 +103,7 @@ public class UserController {
     
     //tárgyleadás usernek
     @DeleteMapping("/{id}/{courseID}")
-    @Secured({ "ROLE_USER" })
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<User> leaveCourse(@PathVariable Integer id, @PathVariable Integer courseID) {
         Optional<User> oUser = userRepository.findById(id);
         Optional<Course> oCourse = courseRepository.findById(courseID);

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { User } from '../classes/user';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-create-user-page',
@@ -28,7 +29,8 @@ export class CreateUserPageComponent implements OnInit {
   });
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private httpService : HttpService
 
   ) { }
 
@@ -46,8 +48,9 @@ export class CreateUserPageComponent implements OnInit {
 
     this.user.emit(this._user);
     //teszt, majd kitorolni
-    console.log(this._user);
+    //console.log(this._user);
 
+    this.httpService.post('users/register', this._user);
   }
 
 }

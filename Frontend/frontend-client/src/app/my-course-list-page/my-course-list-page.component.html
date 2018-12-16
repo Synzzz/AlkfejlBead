@@ -20,5 +20,8 @@
             <li  *ngFor="let student of course.students">{{student.name}}</li>
           </ul>
       </mat-expansion-panel>
+      <mat-action-row>
+        <button  mat-button type="submit" (click)="leaveCourse(course.id)" >Kurzus leadása</button>
+    </mat-action-row>
   </mat-expansion-panel>
 <mat-accordion>

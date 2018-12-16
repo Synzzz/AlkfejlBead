@@ -1,11 +1,14 @@
 package hu.elte.Neptun.controllers;
 
+import hu.elte.Neptun.entities.Course;
 import hu.elte.Neptun.entities.Subject;
 import hu.elte.Neptun.repositories.SubjectRepository;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

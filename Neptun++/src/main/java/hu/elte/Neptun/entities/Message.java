@@ -32,11 +32,11 @@ public class Message implements Serializable {
     @NotNull
     private String message;
             
-    @JsonIgnore
+    //@JsonIgnore
     @OneToOne
     private User sender;
     
-    @JsonIgnore
+    //@JsonIgnore
     @OneToOne
     private User addressee;
     
