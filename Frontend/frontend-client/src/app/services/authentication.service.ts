@@ -1,28 +1,46 @@
-/*import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpService } from './http.service';
+import { User } from '../classes/user';
+import { Router } from '@angular/router';
 
-@Injectable()
-export class AuthenticationService {
-    constructor(private http: HttpClient) { }
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  public isLoggedIn: boolean = false;
+  public user: User = null;
 
-    login(username: string, password: string) {
-        return this.http.post<any>(`/users/authenticate`, { username: username, password: password })
-            .pipe(map(user => {
-                // login successful if there's a jwt token in the response
-                if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                }
+  constructor(
+    private httpService: HttpService,
+    private router: Router
+  ) { }
 
-                return user;
-            }));
+  public async login(username: string, password: string): Promise<User> {
+    try {
+      const token = btoa(username + ':' + password);
+      window.localStorage.setItem('token', token);
+      const user: User = await this.httpService.post('users/login', username) as User;
+      this.isLoggedIn = true;
+      this.user = user;
+      console.log(user);
+      return Promise.resolve(user);
+    } catch (e) {
+      window.localStorage.setItem('token', '');
+      console.error(e);
+      return Promise.reject('error');
     }
+  }
 
-    logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
-    }
+  public logout() {
+    this.isLoggedIn = false;
+    this.user = null;
+    window.localStorage.setItem('token', '');
+    this.router.navigate(['/login']);
+  }
+
+  public loginWithToken() {
+    const token = window.localStorage.getItem('token');
+    const [username, password] = atob(token).split(':');
+    this.login(username, password);
+  }
 }
-*/
-// ezt majd api összekötéshez,még át kell irni a mi cuccainkra http://jasonwatmore.com/post/2018/05/16/angular-6-user-registration-and-login-example-tutorial

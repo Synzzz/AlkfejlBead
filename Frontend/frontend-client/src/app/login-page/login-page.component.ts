@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
-import { User } from '../classes/user';
+import { AuthService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -8,24 +9,32 @@ import { User } from '../classes/user';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  private message = '';
+  private hidePassword = true;
 
   private loginForm = this.fb.group({
-    username: ['',Validators.required],
-    password: ['',Validators.required],   
+    username: ['', Validators.required],
+    password: ['', Validators.required]
   });
 
   constructor(
-    private fb: FormBuilder
-
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
   }
 
-  private onSubmit() {
-    //validalni a bejelentkezest majd valahogy
-    if (this.loginForm.invalid) {
-      return;
+  private async onSubmit() {
+    const username = this.loginForm.get('username').value;
+    const password = this.loginForm.get('password').value;
+
+    try {
+      await this.authService.login(username, password);
+      this.router.navigate(['/']);
+    } catch (e) {
+      this.message = 'Sikertelen bejelentkezés!';
     }
   }
 

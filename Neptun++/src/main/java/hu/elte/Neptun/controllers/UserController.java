@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -51,8 +53,8 @@ public class UserController {
     
     @PostMapping("/login")
     //@Secured({ "ROLE_ADMIN", "ROLE_USER" })
-    public ResponseEntity<User> login(@RequestBody User user) {
-        Optional<User> oUser = userRepository.findByName(user.getName());
+    public ResponseEntity<User> login(@RequestBody String username) {
+        Optional<User> oUser = userRepository.findByUsername(username);
         
         if(!oUser.isPresent()){
             return ResponseEntity.notFound().build();

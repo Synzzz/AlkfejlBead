@@ -16,8 +16,8 @@ export class SubjectListPageComponent implements OnInit {
 
   ) { }
 
-  ngOnInit() {
-    this._subjects = this._subjectService.getSubjects();
+  async ngOnInit() {
+    this._subjects = await this._subjectService.getSubjects();
 
   }
 

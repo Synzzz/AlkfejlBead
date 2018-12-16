@@ -38,6 +38,6 @@ public class Message implements Serializable {
     
     @JsonIgnore
     @OneToOne
-    private User recipient;
+    private User addressee;
     
 }

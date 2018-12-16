@@ -1,7 +1,7 @@
 package hu.elte.Neptun.repositories;
 
 import hu.elte.Neptun.entities.Message;
-import java.util.List;
+import hu.elte.Neptun.entities.User;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MessageRepository extends CrudRepository<Message, Integer> {
-    public Optional<Message> findBySender(String sender);
-    public Optional<Message> findByRecipient(String recipient);
+    public Optional<Iterable<Message>> findAllBySender(User sender);
+    public Optional<Iterable<Message>> findAllByAddressee(User addressee);
 
 }

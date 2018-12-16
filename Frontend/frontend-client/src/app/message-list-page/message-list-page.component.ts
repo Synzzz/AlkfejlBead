@@ -8,17 +8,14 @@ import { Message } from '../classes/message';
   styleUrls: ['./message-list-page.component.css']
 })
 export class MessageListPageComponent implements OnInit {
-
   private _messages: Message[];
 
   constructor(
-    private _messageService: MessageService
+    private messageService: MessageService
 
   ) { }
 
-  ngOnInit() {
-    this._messages = this._messageService.getMessages();
-
+  async ngOnInit() {
+    this._messages = await this.messageService.getMessages();
   }
-
 }

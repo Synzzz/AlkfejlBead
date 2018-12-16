@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl,Validators,FormBuilder} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-//import { User } from '../classes/user';
-
-//ideiglenes, majd apibol jon normalis user
-export interface User {
-  name: string;
-}
+import { MessageService } from '../services/message.service';
+import { Message } from '../classes/message';
+import { AuthService } from '../services/authentication.service';
+import { User } from '../classes/user';
 
 @Component({
   selector: 'app-new-message-page',
@@ -19,7 +17,9 @@ export class NewMessagePageComponent implements OnInit {
   private fb: FormBuilder
   private newMessageForm 
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder,
+    private messageService : MessageService,
+    private authService : AuthService) {
     this.newMessageForm = fb.group({
       'name': ['',Validators.required],
       'message':['',Validators.required]
@@ -27,41 +27,29 @@ export class NewMessagePageComponent implements OnInit {
   }
   ///kopikód angular oldaláról
   name = new FormControl();
-  options: User[] = [
-    {name: 'Mary'},
-    {name: 'Shelley'},
-    {name: 'Béla'},
-    {name: 'Igor'}
-  ];
-  filteredOptions: Observable<User[]>;
 
  ngOnInit() {
-    this.filteredOptions = this.name.valueChanges
-      .pipe(
-        startWith<string | User>(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this._filter(name) : this.options.slice())
-      );
+    
   }
 
   displayFn(user?: User): string | undefined {
     return user ? user.name : undefined;
   }
-
-  private _filter(name: string): User[] {
-    const filterValue = name.toLowerCase();
-
-    return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
-  }
   
  
-
+message: Message;
 
   private onSubmit() {
     //validalni a bejelentkezest majd valahogy
     if (this.newMessageForm.invalid) {
       return;
     }
-    console.log(this.newMessageForm.value.name.name)
+
+    this.message = new Message();
+    this.message.sender = this.authService.user;
+    this.message.addressee = { id : 0, courses : undefined, name : undefined, password : undefined, role : undefined, username : this.newMessageForm.value.name }
+    this.message.message = this.newMessageForm.value.message;
+
+    this.messageService.sendMessage(this.message);
   }
 }

@@ -18,8 +18,8 @@ export class MyCourseListPageComponent implements OnInit {
 
   ) { }
 
-  ngOnInit() {
-    this._courses = this._myCoursesService.getCourses();
+  async ngOnInit() {
+    this._courses = await this._myCoursesService.getCourses();
 
   }
 

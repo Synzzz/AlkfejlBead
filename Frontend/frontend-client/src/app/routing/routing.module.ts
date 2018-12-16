@@ -7,14 +7,15 @@ import { CreateUserPageComponent } from '../create-user-page/create-user-page.co
 import { LoginPageComponent } from '../login-page/login-page.component';
 import { NewMessagePageComponent } from '../new-message-page/new-message-page.component';
 import { MyCourseListPageComponent } from '../my-course-list-page/my-course-list-page.component';
+import { AuthGuard } from '../auth.guard';
 
 const routes: Route[] = [
-  { path: '', component: SubjectListPageComponent },
-  { path: 'my-messages', component: MessageListPageComponent },
-  { path: 'create-user', component: CreateUserPageComponent },
+  { path: '', component: SubjectListPageComponent, canActivate : [AuthGuard] },
+  { path: 'my-messages', component: MessageListPageComponent, canActivate : [AuthGuard] },
+  { path: 'create-user', component: CreateUserPageComponent, canActivate : [AuthGuard] },
   { path: 'login', component: LoginPageComponent },
-  { path: 'new-message', component: NewMessagePageComponent },
-  { path: 'my-courses', component: MyCourseListPageComponent },
+  { path: 'new-message', component: NewMessagePageComponent, canActivate : [AuthGuard] },
+  { path: 'my-courses', component: MyCourseListPageComponent, canActivate : [AuthGuard] },
 
 ];
 

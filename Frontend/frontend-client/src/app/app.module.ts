@@ -27,6 +27,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateUserPageComponent } from './create-user-page/create-user-page.component';
 import { NewMessagePageComponent } from './new-message-page/new-message-page.component';
 import { MyCourseListPageComponent } from './my-course-list-page/my-course-list-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MyCourseListPageComponent } from './my-course-list-page/my-course-list-
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
