@@ -19,39 +19,39 @@
 
 Az alkalmazásban 2 különböző felhasználótípust különböztetünk meg. Mindegyik felhasználótípus jogköre hitelesítéshez kötött, vendégként, bejelentkezés nélkül az alkalmazás oldalai nem elérhetőek.
 
-### ADMIN
+#### ADMIN
 
 Ez a jogosultságkör az adminok és az oktatók számára kerül kiosztásra. Az egyszerűség kedvéért csak ADMIN-nak hívjuk. Ez a felhasználótípus vihet fel új felhasználókat.
 
-### USER
+#### USER
 
 A USER jogosultság a hallgatók számára kerül kiosztásra.
 
-## Az alkalmazás logikai felépítése
+### Az alkalmazás logikai felépítése
 
 A Neptun++ alkalmazás felülete elsősorban listás jellegű, ezzel biztosítva a könnyű átláthatóságot és kezelhetőséget.
 
-### Log In - login
+#### Log In - login
 
 A Log in képernyő minden más webes alkalmazáshoz hasonlóan biztosítja a bejelentkezést a hallgatók és az oktatók számára. Az alkalmazás használatához mindenképpen be kell jelentkezni, ha a kérés nincs azonosítva, automatikusan a log in képernyőre navigál a kliens.
 
-### Navigáció – navbar
+#### Navigáció – navbar
 
 Az alkalmazásban állandó jelleggel a felső sávban látható egy menüsáv, mely a navigációt biztosítja.  5 menüpont található rajta – tantárgyak, felvett kurzusok, üzenetek,  új felhasználó és egy belépés gomb. Ezek a menüpontok jogosultságtól függően érhetőek el az egyes felhasználók számára. 
 
-### Tantárgyak – subject-list
+#### Tantárgyak – subject-list
 
 A tantárgyak megjelenítése tárgyanként kattintásra lenyílik, így jelezve a választható kurzusokat ahhoz a tárgyhoz, amit majd kiválasztva és a tárgy felvétele gombra kattintva felvehetünk, ha arra beférünk.
 
-### Felvett kurzusok – my-course-list
+#### Felvett kurzusok – my-course-list
 
 A tantárgyak oldalhoz hasonlóan működik, azzal a különbséggel, hogy itt mégegy lenyíló ablakban láthatjuk a kurzus többi hallgatóját, illetve leadhatjuk az adott kurzust.
 
-### Üzenetek  message-list
+#### Üzenetek  message-list
 
 Ha van kapott üzenetünk, azt listázva itt láthatjuk, illetve új üzenetet is küldhetünk.
 
-### Új felhasználó  create-user
+#### Új felhasználó  create-user
 
 Ha admin jogaink vannak, felvihetünk új felhasználót. Feltétel, hogy ne legyen a felhasználónév már foglalt.
 
@@ -59,7 +59,7 @@ Ha admin jogaink vannak, felvihetünk új felhasználót. Feltétel, hogy ne leg
 
 ### Végpontok:
 
-## GET 
+#### GET 
 * subjects/
 * courses/
 * courses/{ID}/teacher
@@ -73,22 +73,22 @@ Ha admin jogaink vannak, felvihetünk új felhasználót. Feltétel, hogy ne leg
 * users/{ID}/courses
 
 
-## PUT
+#### PUT
 * users/{userID}/takeCourse/{courseID}
 
 
-## POST
+#### POST
 * messages/sendMessage
 * users/register
 * users/login
 
 
-## DELETE
+#### DELETE
 * users/{userID}/{courseID}
 
 
 
-### Adatbázisok:
+#### Adatbázisok:
 * Tárgyak
 * Felhasználók
 * Kurzusok
