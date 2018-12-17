@@ -8,6 +8,7 @@
 * tárgy(ak) felvétele (adott személy)
 * tárgy(ak) leadása (adott személy)
 * hallgató(k) hozzáadása (admin)
+* üzenetek küldése és fogadása
 
 ### Nem funkcionális követelmények:
 * felhasználóbarát felület
